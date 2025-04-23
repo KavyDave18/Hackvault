@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HackVault - Hackathon Idea Generator</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <!-- jsPDF for PDF export -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <i class="fas fa-code"></i>
+            <h1>HackVault</h1>
+        </div>
+        <h2>Hackathon Project & Team Idea Generator</h2>
+    </header>
+
+    <main>
+        <section class="input-section">
+            <div class="container">
+                <div class="domain-selector">
+                    <h3>1. Select Domain</h3>
+                    <div class="domain-options">
+                        <div class="domain-option" data-domain="Health">
+                            <i class="fas fa-heartbeat"></i>
+                            <span>Health</span>
+                        </div>
+                        <div class="domain-option" data-domain="Education">
+                            <i class="fas fa-graduation-cap"></i>
+                            <span>Education</span>
+                        </div>
+                        <div class="domain-option" data-domain="Fintech">
+                            <i class="fas fa-coins"></i>
+                            <span>Fintech</span>
+                        </div>
+                        <div class="domain-option" data-domain="Environment">
+                            <i class="fas fa-leaf"></i>
+                            <span>Environment</span>
+                        </div>
+                        <div class="domain-option" data-domain="Social">
+                            <i class="fas fa-users"></i>
+                            <span>Social</span>
+                        </div>
+                    </div>
+                    <input type="hidden" id="selected-domain" name="domain" value="">
+                </div>
+
+                <div class="team-section">
+                    <h3>2. Add Team Members</h3>
+                    <div class="team-members" id="team-members">
+                        <div class="team-member">
+                            <input type="text" class="member-name" placeholder="Team Member Name">
+                            <select class="member-role">
+                                <option value="">Select Role</option>
+                                <option value="Frontend">Frontend Developer</option>
+                                <option value="Backend">Backend Developer</option>
+                                <option value="Fullstack">Fullstack Developer</option>
+                                <option value="UI/UX">UI/UX Designer</option>
+                                <option value="ML/AI">ML/AI Engineer</option>
+                                <option value="DevOps">DevOps Engineer</option>
+                                <option value="PM">Project Manager</option>
+                            </select>
+                            <button class="remove-member"><i class="fas fa-times"></i></button>
+                        </div>
+                    </div>
+                    <button id="add-member" class="btn add-member">
+                        <i class="fas fa-plus"></i> Add Team Member
+                    </button>
+                </div>
+
+                <div class="generate-section">
+                    <button id="generate-btn" class="btn generate-btn">
+                        <i class="fas fa-bolt"></i> Generate Idea
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <section class="result-section" id="result-section">
+            <div class="loading-container" id="loading-container">
+                <div class="loading-spinner"></div>
+                <p>Generating your project idea...</p>
+            </div>
+            
+            <div class="result-container" id="result-container">
+                <div class="result-header">
+                    <h3>Your Hackathon Project</h3>
+                    <div class="result-actions">
+                        <button id="save-pdf-btn" class="btn">
+                            <i class="fas fa-file-pdf"></i> Export as PDF
+                        </button>
+                        <button id="regenerate-btn" class="btn">
+                            <i class="fas fa-sync-alt"></i> Regenerate
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="result-content" id="result-content">
+                    <!-- Content will be dynamically generated -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 HackVault | The Ultimate Hackathon Project & Team Generator</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html> 
